@@ -11,7 +11,7 @@ tmax = 10e-3; % seconds
 % Comparing simulated vs predicted response for different values of k and
 % phase differences
 k_vals = 0:0.025:0.2;
-phi_vals = [0, 0,25, 0.5]; % portion of pi
+phi_vals = [0, 0.25, 0.5]; % portion of pi
 
 for phi = phi_vals
     fprintf("At phi = %0.2f*pi:\n", phi);
