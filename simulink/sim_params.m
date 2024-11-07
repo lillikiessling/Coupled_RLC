@@ -3,7 +3,7 @@ warning('off', 'SimulinkFixedPoint:util:Overflowoccurred');
 %%
 fm = 100;                           % Modulation frequency, Hz
 
-k                   = 0.1;          % Coil coupling factor
+k                   = 0.01;          % Coil coupling factor
 fc                  = 34.63e3;      % Carrier frequency, Hz
 
 R1                  = 0.26;         % Coil 1 series resitance, Ohm
@@ -23,4 +23,3 @@ phase_nbits         = 16;           % Number of bit represnting phase on the FPG
 sample_time         = 1/(fc*samples_per_period);
 deadtime            = 200/(64e6);   % Deadtime of the PWM driver
 relative_deadtime = deadtime / (0.5/fc);
-
