@@ -13,8 +13,16 @@ simOut = sim(simIn);
 V1 = simOut.logsout{3}.Values.Data(:);
 I1 = simOut.logsout{1}.Values.Data(:)*150;
 
-L1_calc = abs(1i* omega * (I1 * R_est - V1) / (I1 * (omega - omega_0_est) * (omega + omega_0_est)));
-C1_calc = abs(1i* I1 * (-omega^2 + omega_0_est^2) / (omega * omega_0_est^2 * (I1 * R_est - V1)));
+N = round(0.2 * length(V1));
+
+V1_amp_t = abs(hilbert(V1));
+V1_amp = mean(V1_amp_t(N:end-N));
+
+I1_amp_t = abs(hilbert(I1));
+I1_amp = mean(I1_amp_t(N:end-N));
+
+L1_calc = abs(1i* omega * (I1_amp * R_est - V1_amp) / (I1_amp * (omega - omega_0_est) * (omega + omega_0_est)));
+C1_calc = abs(1i* I1_amp * (-omega^2 + omega_0_est^2) / (omega * omega_0_est^2 * (I1_amp * R_est - V1_amp)));
 
 L1_est = max(L1_calc(:)); 
 C1_est = max(C1_calc(:));

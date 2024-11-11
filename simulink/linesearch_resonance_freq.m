@@ -14,10 +14,21 @@ function Z_mag = impedance_magnitude(omega_val, model_name)
 
     V1 = simOut.logsout{3}.Values.Data(:);
     I1 = simOut.logsout{1}.Values.Data(:)*150;
+
+    % N = round(0.2 * length(V1));
+    % 
+    % V1_amp_t = abs(hilbert(V1));
+    % V1_amp = mean(V1_amp_t(N:end-N));
+    % 
+    % I1_amp_t = abs(hilbert(I1));
+    % I1_amp = mean(I1_amp_t(N:end-N));
+
     % exclude the transient
     %peak_V = max(V1(end-1000:end));
     %peak_I = max(I1(end-1000:end));
     %Z_mag = peak_V / peak_I;
+    % Z_mag = V1_amp/ I1_amp;
+
     Z_mag = rms(V1)/ rms(I1);
 end
 
