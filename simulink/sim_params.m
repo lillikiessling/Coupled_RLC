@@ -29,5 +29,5 @@ relative_deadtime = deadtime / (0.5/fc);
 
 % parameters needed for Calibration
 omega_min = 200000;
-omega_max = 250000;
+omega_max = 230000;
 tol = 1e-5;              % Tolerance for search
