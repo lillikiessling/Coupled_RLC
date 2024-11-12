@@ -10,7 +10,7 @@ simIn = Simulink.SimulationInput(model_name);
 simIn = simIn.setVariable('omega', omega);
 simOut = sim(simIn);
 
-V1 = simOut.logsout{3}.Values.Data(:);
+V1 = simOut.logsout{4}.Values.Data(:);
 I1 = simOut.logsout{1}.Values.Data(:)*150;
 
 N = round(0.2 * length(V1));
@@ -32,3 +32,5 @@ fprintf('C1_est (mean): %.20e\n', C1_est);
 
 fprintf('L1_real: %.20e\n', L1);
 fprintf('C1_real: %.20e\n', C1);
+
+save('calibration_params.mat', 'L1_est', 'C1_est');

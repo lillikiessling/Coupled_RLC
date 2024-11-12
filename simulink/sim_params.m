@@ -3,7 +3,7 @@ warning('off', 'SimulinkFixedPoint:util:Overflowoccurred');
 %%
 fm = 100;                           % Modulation frequency, Hz
 
-k                   = 0.00;          % Coil coupling factor
+k                   = 0.1;          % Coil coupling factor
 fc                  = 34.63e3;      % Carrier frequency, Hz
 
 
